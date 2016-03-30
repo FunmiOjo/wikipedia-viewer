@@ -1,0 +1,61 @@
+body {
+	font-family: Arial, "sans-serif";
+	font-size: 95%;
+	margin: 0 auto;
+	
+}
+
+form {
+	margin: 2% auto 1%;
+	width: 50%;	
+	vertical-align: bottom;
+	
+	
+}
+
+form label {
+	font-weight: bold;
+}
+
+form a {
+	color: #001194;
+	margin-left: 3px;
+	 	
+}
+
+button {
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	background-image: url("http://res.cloudinary.com/djsd8ajub/image/upload/c_fill,w_20/v1459281928/magnifying_glass_i2saex.png");
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	vertical-align: bottom;
+	border: none;
+}
+
+#separator {
+	border-bottom: 1px solid orange;
+}
+
+.search-result {
+	margin: 0 auto;
+	width: 80%;
+	border-bottom: 1px dotted #001194;
+}
+
+.search-result:hover {
+	border-bottom: 2px solid #001194;
+}
+
+.search-result h2{
+	margin: 1% 0px;
+	font-size: 100%;
+}
+
+footer {
+	margin: 2% 0% 1%;
+	padding-top: 1%;
+	border-top: 1px solid orange;
+}
+
