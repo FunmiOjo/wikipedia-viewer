@@ -5,11 +5,18 @@ body {
 	
 }
 
+
+#search-bar {
+	background-color: orange;
+	padding: 10px;
+	border-bottom: 1px solid #C5C4C3;
+}
+
 form {
-	margin: 2% auto 1%;
-	width: 50%;	
+	margin: 0 auto;
+	width: 30%;	
 	vertical-align: bottom;
-	
+	background-color: orange;
 	
 }
 
@@ -17,6 +24,10 @@ form label {
 	font-weight: bold;
 }
 
+form input {
+	width: 90%;
+	font-size: 100%;
+}
 form a {
 	color: #001194;
 	margin-left: 3px;
@@ -41,11 +52,18 @@ button {
 .search-result {
 	margin: 0 auto;
 	width: 80%;
+/*
 	border-bottom: 1px dotted #001194;
+*/
+	border-bottom: 1px dotted #C5C4C3;
 }
 
 .search-result:hover {
+/*
 	border-bottom: 2px solid #001194;
+*/
+	border-bottom: 1px solid #C5C4C3;
+	
 }
 
 .search-result h2{
@@ -54,8 +72,10 @@ button {
 }
 
 footer {
-	margin: 2% 0% 1%;
-	padding-top: 1%;
-	border-top: 1px solid orange;
+	margin-top: 3px;
+	padding: 5px;
+	border-top: 1px solid #C5C4C3;
+	font-size: 80%;
+	background-color: orange;
 }
 
