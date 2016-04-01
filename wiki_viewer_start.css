@@ -1,0 +1,86 @@
+body {
+	font-family: Arial, "sans-serif";
+	font-size: 95%;
+	margin: 0 auto;
+	padding: 0;
+	background-color: orange;
+	height: 100%;
+	
+}
+
+
+#search-bar {
+	
+}
+
+form {
+	margin: 30% auto 1%;
+	width: 30%;	
+	vertical-align: bottom;
+	background-color: orange;
+	
+}
+
+form label {
+	font-weight: bold;
+	margin: 0px auto;
+	
+}
+
+input {
+	width: 90%;
+	font-size: 100%;
+}
+
+
+a {
+	color: #001194;
+	
+	 	
+}
+
+button {
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	background-image: url("http://res.cloudinary.com/djsd8ajub/image/upload/c_fill,w_20/v1459281928/magnifying_glass_i2saex.png");
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	vertical-align: bottom;
+	border: none;
+}
+
+
+.search-result {
+	margin: 0 auto;
+	width: 80%;
+/*
+	border-bottom: 1px dotted #001194;
+*/
+	border-bottom: 1px dotted #C5C4C3;
+}
+
+.search-result:hover {
+/*
+	border-bottom: 2px solid #001194;
+*/
+	border-bottom: 1px solid #C5C4C3;
+	
+}
+
+.search-result h2{
+	margin: 1% 0px;
+	font-size: 100%;
+}
+
+footer {
+	position:absolute;
+	bottom: 0;
+	width: 100%;
+	margin-top: 3px;
+	padding: 5px;
+	border-top: 1px solid #C5C4C3;
+	font-size: 80%;
+	background-color: orange;
+	height: 20px;
+}
