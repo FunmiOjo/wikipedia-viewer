@@ -1,3 +1,65 @@
+//changing structure and styling after initial search
+
+QUnit.test("make background white", function(assert) {
+	changeBackgroundColor();
+	assert.equal(document.body.style.backgroundColor, "rgb(255, 255, 255)");
+});
+
+QUnit.test("change margin to 0 auto", function(assert) {
+	changeFormMargin("0 auto");
+	assert.equal(document.getElementsByTagName("form")[0].style.margin, "0px auto");
+});
+
+QUnit.test("change search bar padding", function(assert) {
+	changeSearchBarPadding();
+	assert.equal(document.getElementById("search-bar").style.padding, "10px");
+});
+
+QUnit.test("change search bar border", function(assert) {
+	changeSearchBarBorder();
+	assert.equal(document.getElementById("search-bar").style.borderBottom,
+	 "1px solid rgb(197, 196, 195)");
+});
+
+QUnit.test("insert unordered list", function(assert) {
+	insertUl();
+	assert.ok(document.getElementsByTagName("ul"));
+});
+
+QUnit.test("set unordered list id", function(assert) {
+	//insertUl();
+	setUlId();
+	assert.equal(document.getElementsByTagName("ul")[0].getAttribute("id"),
+		"search-results");
+});
+
+
+QUnit.test("insert list item elements", function(assert) {
+	insertUl();
+	insertLis();
+	assert.equal(document.getElementsByTagName("ul")[0].childNodes.length, 10);
+});
+
+
+QUnit.test("insert title into list items", function(assert) {
+	insertTitleElements();
+	
+	var list = document.getElementsByTagName("ul")[0].childNodes;
+	function checkH2() {
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].firstChild.nodeName !== "H2") {
+				return false;
+			}
+		}
+		return true;
+	}
+	assert.ok(checkH2());
+});
+
+console.log(document.getElementsByTagName("ul"));
+
+
+//dealing with data from API
 QUnit.test("extract titles from response", function(assert) {
 	var titles = ["Julio Cortázar", "Último round", "The Winners (novel)", 
 	"Final del juego", "62: A Model Kit", "Bestiario", 
@@ -145,15 +207,15 @@ QUnit.test("add urls to search results object", function(assert) {
 		 ["\u00daltimo round", "https://en.wikipedia.org/wiki/%C3%9Altimo_round"]];
 		 
 	var results = [{title: "Julio Cortázar", snippet: null, url: null}, 
-	{title: "Último round", snippet: null, url: null}, 
-	{title: "The Winners (novel)", snippet: null, url: null}, 
-	{title: "Final del juego", snippet: null, url: null}, 
-	{title: "62: A Model Kit", snippet: null, url: null}, 
-	{title: "Bestiario", snippet: null, url: null}, 
-	{title: "Todos los fuegos el fuego", snippet: null, url: null}, 
-	{title: "Fantomas contra los vampiros multinacionales", snippet: null, url: null}, 
-	{title: "Prosa del Observatorio", snippet: null, url: null}, 
-	{title: "Hopscotch (Julio Cortázar novel)", snippet: null, url: null}];
+		{title: "Último round", snippet: null, url: null}, 
+		{title: "The Winners (novel)", snippet: null, url: null}, 
+		{title: "Final del juego", snippet: null, url: null}, 
+		{title: "62: A Model Kit", snippet: null, url: null}, 
+		{title: "Bestiario", snippet: null, url: null}, 
+		{title: "Todos los fuegos el fuego", snippet: null, url: null}, 
+		{title: "Fantomas contra los vampiros multinacionales", snippet: null, url: null}, 
+		{title: "Prosa del Observatorio", snippet: null, url: null}, 
+		{title: "Hopscotch (Julio Cortázar novel)", snippet: null, url: null}];
 	
 	
 	var searchResultsUrls = [{title: "Julio Cortázar", snippet: null, 
@@ -177,6 +239,13 @@ QUnit.test("add urls to search results object", function(assert) {
 	{title: "Hopscotch (Julio Cortázar novel)", snippet: null, 
 		url: 'https://en.wikipedia.org/wiki/Hopscotch_(Julio_Cort%C3%A1zar_novel)'}];
 	assert.deepEqual(addUrls(links, results), searchResultsUrls);
+});
+
+QUnit.test("get consolidated search results object", function(assert) {
+	var completeObj = {};
+	completeObj = addTitles(completeObj, getTitles(searchInfo));
+	completeObj = addSnippets(completeObj, getSnippets(searchInfo));
+	completeObj = addUrls(completeObj, getUrls(urlResponse));
 });
 
 var wikiResponse = {
@@ -241,3 +310,49 @@ var urlResponse =
 
 var urlOre = urlResponse.query.pages;
 //var searchResults = [];
+
+
+
+//displaying search results
+QUnit.test("insert list item elements", function(assert) {
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
