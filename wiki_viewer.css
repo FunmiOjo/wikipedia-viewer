@@ -49,8 +49,14 @@ button {
 	border-bottom: 1px solid orange;
 }
 
+li {
+	list-style-type: none;
+	margin: 1px 0px;
+}
+
 .search-result {
 	margin: 0 auto;
+	padding-bottom: 1%;
 	width: 80%;
 /*
 	border-bottom: 1px dotted #001194;

@@ -10,11 +10,11 @@ body {
 
 
 #search-bar {
-	
+	background-color: orange;
 }
 
 form {
-	margin: 30% auto 1%;
+	margin: 20% auto 1%;
 	width: 30%;	
 	vertical-align: bottom;
 	background-color: orange;
@@ -51,14 +51,19 @@ button {
 }
 
 
+li {
+	list-style-type: none;
+	margin: 1px 0px;
+}
+
 .search-result {
 	margin: 0 auto;
+	padding-bottom: 1%;
 	width: 80%;
 /*
 	border-bottom: 1px dotted #001194;
 */
 	border-bottom: 1px dotted #C5C4C3;
-}
 
 .search-result:hover {
 /*
