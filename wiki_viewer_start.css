@@ -16,7 +16,6 @@ body {
 	position: relative;
 }
 
-
 form {
 	margin: 20% auto 1%;
 	width: 30%;	
@@ -79,18 +78,11 @@ form label {
 	margin: 0 auto;
 	padding-bottom: 1%;
 	width: 100%;
-/*
-	border-bottom: 1px dotted #001194;
-*/
 	border-bottom: 1px dotted #C5C4C3;
 }
 
 .search-result:hover {
-/*
-	border-bottom: 2px solid #001194;
-*/
 	border-bottom: 1px solid #C5C4C3;
-	
 }
 
 
