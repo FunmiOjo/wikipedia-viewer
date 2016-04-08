@@ -1,3 +1,13 @@
+//get data from Wikimedia
+QUnit.test("get data from first request", function(assert) {
+	var done = assert.async();
+	var titleAndSnippetData;
+	setUpJSONP("Zadie Smith");
+	
+	assert.equal(typeof titleAndSnippetData, "object");
+	done();
+});
+
 //changing structure and styling after initial search
 
 QUnit.test("make background white", function(assert) {
@@ -56,7 +66,21 @@ QUnit.test("insert title into list items", function(assert) {
 	assert.ok(checkH2());
 });
 
-console.log(document.getElementsByTagName("ul"));
+
+QUnit.test("Add anchors to titles", function(assert) {
+	addAnchorsToTitles();
+	assert.equal(document.getElementsByTagName("h2")[0].firstChild.nodeName,"A");
+});
+
+
+QUnit.test("Style post-search page", function(assert) {
+	stylePageAfterSearch();
+	console.log(document.body);
+	assert.ok(document.getElementById("search-results"));
+	assert.equal(document.getElementsByTagName("h2").length, 12);
+	assert.equal(document.getElementsByClassName("title-link").length, 10);
+	assert.equal(document.getElementsByClassName("search-result").length, 10);
+});
 
 
 //dealing with data from API
@@ -241,11 +265,17 @@ QUnit.test("add urls to search results object", function(assert) {
 	assert.deepEqual(addUrls(links, results), searchResultsUrls);
 });
 
+QUnit.test("create array containing 10 objects", function(assert) {
+	var x = createSearchResultsObject(10);
+	assert.equal(x.length, 10);
+	assert.equal(typeof x[5], "object");
+});
+
 QUnit.test("get consolidated search results object", function(assert) {
-	var completeObj = {};
-	completeObj = addTitles(completeObj, getTitles(searchInfo));
-	completeObj = addSnippets(completeObj, getSnippets(searchInfo));
-	completeObj = addUrls(completeObj, getUrls(urlResponse));
+	var completeObj = getConsolidatedSearchResultsObj();
+	assert.ok(completeObj[5].title);
+	assert.ok(completeObj[5].url);
+	assert.ok(completeObj[5].snippet);
 });
 
 var wikiResponse = {
@@ -314,11 +344,29 @@ var urlOre = urlResponse.query.pages;
 
 
 //displaying search results
-QUnit.test("insert list item elements", function(assert) {
-	
+QUnit.test("insert titles", function(assert) {
+	var results = getConsolidatedSearchResultsObj();
+	stylePageAfterSearch();
+	populateTitles(results);
+	assert.ok(document.getElementsByClassName("title-link")[5].textContent);
 });
 
 
+QUnit.test("insert urls", function(assert) {
+	var results = getConsolidatedSearchResultsObj();
+	stylePageAfterSearch();
+	populateUrls(results);
+	assert.ok(document.getElementsByClassName("title-link")[0].getAttribute("href"),
+	"https://en.wikipedia.org/wiki/Julio_Cort%C3%A1zar");
+});
+
+
+QUnit.test("insert snippets", function(assert) {
+	var results = getConsolidatedSearchResultsObj();
+	stylePageAfterSearch();
+	populateSnippets(results);
+	assert.ok(document.getElementsByClassName("search-result")[0].textContent);
+});
 
 
 

@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<div id="container">
-		
-		
+	
 			<head>
 				<meta charset="UTF-8">
 				<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,21 +12,21 @@
 			</head>
 		
 		
-		<div id="body">
 			<body>
+			
 			<div id="search-bar">
 			<form action="search-form">
 					<label for="search-term">Search for a Wikipedia article<br></label>
 					<input type=search placeholder="" id="search-term" name=s>
-					<button type="submit"></button>
-					<a href=""><br>Or view a random one</a>
+					<button type="submit" id="search-button"></button>
+					<a href="" id="random"><br>Or view a random one</a>
 				</form>
-				</div>
+			</div>
+			<ul></ul>
+			<div id="credits">This website is powered by the Wikimedia API. The search icon
+			was created by X.</div>
 			</body>
-		</div>
-			
-		<div id="footer">	
-			<footer>This site uses the Wikimedia API. The search icon is from...</footer>
-		</div>
-	</div>
+		
+
+	<script src="wiki_viewer.js"></script>
 </html>
